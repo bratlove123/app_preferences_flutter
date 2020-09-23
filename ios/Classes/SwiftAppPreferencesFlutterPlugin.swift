@@ -11,10 +11,10 @@ public class SwiftAppPreferencesFlutterPlugin: NSObject, FlutterPlugin {
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         if call.method == "openPreferences" {
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!,options:[:],completionHandler: nil)
+                UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!,options:[:],completionHandler: nil)
             } else {
                 // Versiones anteriores
-                UIApplication.shared.openURL(URL(string:UIApplicationOpenSettingsURLString)!)
+                UIApplication.shared.openURL(URL(string:UIApplication.openSettingsURLString)!)
             }
         } else if call.method == "getValue" {
               let argument = call.arguments as! String
